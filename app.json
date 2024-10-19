@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "exs",
-    "slug": "exs",
+    "name": "Mobile Money",
+    "slug": "Mobile Money",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "mobile money",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
