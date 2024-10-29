@@ -1,27 +1,49 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image, ScrollView, Button } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  Button,
+  Pressable,
+} from "react-native";
 
 const myPicture = require("../../assets/images/IMG_001-modified.png");
 
 export default function HomeScreen() {
   // State variable to hold the background color
   const [bgColor, setBgColor] = useState("white");
+  const [textColor, setTextColor] = useState("black");
+  const [width, setWidth] = useState(300);
 
   // Function to change background color on button press
-  function handlePress() {
-    const newColor = bgColor === "white" ? "lightblue" : "white";
+  function handleClick() {
+    const newColor = bgColor === "white" ? "royalblue" : "white";
+    const newTextColor = textColor === "black" ? "white" : "black";
     setBgColor(newColor);
+    setTextColor(newTextColor);
   }
-
+  function handlePress() {
+    const newWidth = width === 300 ? 500 : 300;
+    setWidth(newWidth)
+  }
   return (
     <View style={[styles.container, { backgroundColor: bgColor }]}>
-      <Button title="Click to change color" color="midnightblue" onPress={handlePress} />
+      <Button
+        title="Click to change color"
+        color="midnightblue"
+        onPress={handleClick}
+      />
       <ScrollView>
-        <Image
-          source={{ uri: "https://picsum.photos/200" }}
-          style={{ width: 300, height: 300 }}
-        />
-        <Text style={{ color: "black" }}>
+        <Pressable onPress={handlePress}>
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={{ width: width, height: 300 }}
+          />
+        </Pressable>
+
+        <Text style={{ color: textColor }}>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -32,7 +54,7 @@ export default function HomeScreen() {
           perspiciatis unde omnis iste natus error sit voluptatem accusantium
           doloremque laudantium, totam rem aperiam."
         </Text>
-        <Text style={{ color: "black" }}>
+        <Text style={{ color: textColor }}>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
